@@ -55,24 +55,22 @@ public class CustomerController {
             @RequestBody CustomerUpdateRequest updateRequest) {
         customerService.updateCustomer(customerId, updateRequest);
     }
-
     @PostMapping(
-            value = "{customerId}/profile-image",
+            value = "{customerId}/profile-pic",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
-    public void uploadCustomerProfileImage(
+    public void uploadCustomerProfilePic(
             @PathVariable("customerId") Integer customerId,
-            @RequestParam("file") MultipartFile file) {
-        customerService.uploadCustomerProfileImage(customerId, file);
+            @RequestParam("file")MultipartFile file){
+        customerService.uploadCustomerProfilePic(customerId, file);
     }
 
     @GetMapping(
-            value = "{customerId}/profile-image",
-            produces = MediaType.IMAGE_JPEG_VALUE
-    )
-    public byte[] getCustomerProfileImage(
-            @PathVariable("customerId") Integer customerId) {
-        return customerService.getCustomerProfileImage(customerId);
+            value = "{customerId}/profile-pic",
+            produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] getCustomerProfilePic(
+            @PathVariable("customerId") Integer customerId){
+        return customerService.getCustomerProfilePic(customerId);
     }
 
 }

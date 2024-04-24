@@ -10,11 +10,10 @@ cors:
   exposed-headers: "*"
 
 aws:
-  region: eu-west-1
+  region: us-east-2
   s3:
-    mock: true
     buckets:
-      customer: fs-amigoscode-customer-test
+      customer: fullstack-kofiscode-customer-test
 
 management:
   endpoints:
@@ -35,6 +34,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+  flyway:
+    enabled: true
+    baseline-description: "init"
+    baseline-on-migrate: false
   main:
     web-application-type: servlet
   servlet:

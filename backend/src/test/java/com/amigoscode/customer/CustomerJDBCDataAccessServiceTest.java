@@ -394,7 +394,7 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
                 .orElseThrow();
 
         // When
-        underTest.updateCustomerProfileImageId("2222", id);
+        underTest.updateCustomerProfileimageId("2222", id);
 
         // Then
         Optional<Customer> customerOptional = underTest.selectCustomerById(id);

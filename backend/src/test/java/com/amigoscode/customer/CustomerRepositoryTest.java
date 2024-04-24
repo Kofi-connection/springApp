@@ -4,9 +4,11 @@ import com.amigoscode.AbstractTestcontainers;
 import com.amigoscode.TestConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Import;
 
@@ -15,15 +17,16 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import({TestConfig.class})
+//@DataJpaTest
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@Import({TestConfig.class})
 class CustomerRepositoryTest extends AbstractTestcontainers {
 
-    @Autowired
+//    @Autowired
     private CustomerRepository underTest;
 
-    @Autowired
+//    @Autowired
+    @Mock
     private ApplicationContext applicationContext;
 
     @BeforeEach
@@ -123,7 +126,7 @@ class CustomerRepositoryTest extends AbstractTestcontainers {
                 .orElseThrow();
 
         // When
-        underTest.updateProfileImageId("2222", id);
+        underTest.setProfileImageId("2222", id);
 
         // Then
         Optional<Customer> customerOptional = underTest.findById(id);

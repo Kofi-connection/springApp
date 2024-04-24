@@ -125,7 +125,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao {
     @Override
     public Optional<Customer> selectUserByEmail(String email) {
         var sql = """
-                SELECT id, name, email, password, age, gender, profile_image_id
+                SELECT id, name, email, password, age, gender
                 FROM customer
                 WHERE email = ?
                 """;
@@ -135,8 +135,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao {
     }
 
     @Override
-    public void updateCustomerProfileImageId(String profileImageId,
-                                             Integer customerId) {
+    public void updateCustomerProfileimageId(String profileImageId, Integer customerId) {
         var sql = """
                 UPDATE customer
                 SET profile_image_id = ?

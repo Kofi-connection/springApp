@@ -132,9 +132,9 @@ class CustomerJPADataAccessServiceTest {
         Integer customerId = 1;
 
         // When
-        underTest.updateCustomerProfileImageId(profileImageId, customerId);
+        underTest.updateCustomerProfileimageId(profileImageId, customerId);
 
         // Then
-        verify(customerRepository).updateProfileImageId(profileImageId, customerId);
+        verify(customerRepository).setProfileImageId(profileImageId, customerId);
     }
 }

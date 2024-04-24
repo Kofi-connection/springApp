@@ -30,7 +30,8 @@ public class CustomerListDataAccessService implements CustomerDao {
                 "jamila@gmail.com",
                 "password",
                 19,
-                Gender.MALE);
+                Gender.MALE,
+                "1");
         customers.add(jamila);
     }
 
@@ -84,8 +85,11 @@ public class CustomerListDataAccessService implements CustomerDao {
     }
 
     @Override
-    public void updateCustomerProfileImageId(String profileImageId, Integer customerId) {
-        // TODO: Implement this 😅
+    public void updateCustomerProfileimageId(String profileImageId, Integer customerId) {
+        customers.stream()
+                .filter(c -> c.getId().equals(customerId))
+                .findFirst()
+                .ifPresent(customer -> customer.setProfileImageId(profileImageId));
     }
 
 }

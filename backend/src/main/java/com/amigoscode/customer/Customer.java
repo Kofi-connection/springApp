@@ -19,7 +19,7 @@ import java.util.Objects;
                         columnNames = "email"
                 ),
                 @UniqueConstraint(
-                        name = "profile_image_id_unique",
+                        name = "unique_profile_image_id",
                         columnNames = "profileImageId"
                 )
         }
@@ -82,7 +82,6 @@ public class Customer implements UserDetails {
         this.age = age;
         this.gender = gender;
     }
-
     public Customer(Integer id,
                     String name,
                     String email,
@@ -90,8 +89,8 @@ public class Customer implements UserDetails {
                     Integer age,
                     Gender gender,
                     String profileImageId) {
-       this(id, name, email, password, age, gender);
-       this.profileImageId = profileImageId;
+        this(id,name,email, password, age, gender);
+        this.profileImageId = profileImageId;
     }
 
     public Customer(String name,
